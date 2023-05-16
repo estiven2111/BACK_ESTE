@@ -4,7 +4,7 @@ const isAuthGoogle = (req, res, next) => {
     if(req.user) {
         next();
     } else {
-        res.status(401).json({message: "You are not logged in",user:req});
+        res.status(401).json({message: "You are not logged in",user:`el req es ${req}`});
     }
   }
 
