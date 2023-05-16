@@ -24,7 +24,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(cors({origin:URL_FRONT, credentials:true}))
+// app.use(cors({origin:URL_FRONT, credentials:true}))
 server.use((req, res, next) => {
   //http://localhost:3000 https://pi-web-git-main-estiven2111.vercel.app/   https://pi-lqaa7gh3w-estiven2111.vercel.app  https://pi-dovldixrv-estiven2111.vercel.app/
   res.header('Access-Control-Allow-Origin', URL_FRONT); // (*)update to match the domain you will make the request from
