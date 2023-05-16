@@ -59,13 +59,14 @@ artistRouter.get(
 artistRouter.get(
  
   "/auth/google/callback",
-  ()=>{ console.log("VOY AUTENTICARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");next()},
+  ()=>{ console.log("VOY AUTENTICARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")},
   passport.authenticate("google", {
     failureMessage: "no se pudo iniciar sesion con google",
     failureRedirect: `${URL_FRONT}/login`, //! una direccion de front 
     successRedirect: `${URL_FRONT}/login/success` //!reemplazar por https://urbanclub.club
     // session: false,
-  }),
+  },
+  ()=>{ console.log("VOY AUTENTICAaaaaaaaaaaaaaaaaaaaaaaaaaaaa",URL_FRONT)},),
   (req, res) => {
 
     try {
