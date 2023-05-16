@@ -88,8 +88,9 @@ artistRouter.get(
     }
   }
 );
-
-artistRouter.get(`/auth/user`, isAuthGoogle, (req,res)=>{
+// isAuthGoogle,
+artistRouter.get(`/auth/user`, (req,res)=>{
+ res.json({msg:"entro sin al auth"})
   const token = generateJWT(req.user.id, req.user.name, req.user.profilePhoto)
   res.json(token)
 })
