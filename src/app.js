@@ -31,7 +31,7 @@ const optionCors ={
 
 }
 
- app.use(cors(optionCors))
+ app.use(cors())
 
 //  app.use((req, res, next) => {
 //   //http://localhost:3000 https://pi-web-git-main-estiven2111.vercel.app/   https://pi-lqaa7gh3w-estiven2111.vercel.app  https://pi-dovldixrv-estiven2111.vercel.app/
