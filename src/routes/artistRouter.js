@@ -59,14 +59,12 @@ artistRouter.get(
 artistRouter.get(
  
   "/auth/google/callback",
-  ()=>{ console.log("VOY AUTENTICARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")},
   passport.authenticate("google", {
     failureMessage: "no se pudo iniciar sesion con google",
     failureRedirect: `${URL_FRONT}/login`, //! una direccion de front 
     successRedirect: `${URL_FRONT}/login/success` //!reemplazar por https://urbanclub.club
     // session: false,
-  },
-  ()=>{ console.log("VOY AUTENTICAaaaaaaaaaaaaaaaaaaaaaaaaaaaa",URL_FRONT)},),
+  }),
   (req, res) => {
 
     try {
@@ -93,7 +91,6 @@ artistRouter.get(
 );
 // isAuthGoogle,
 artistRouter.get(`/auth/user`,isAuthGoogle, (req,res)=>{
- res.json({msg:"entro sin al auth"})
   const token = generateJWT(req.user.id, req.user.name, req.user.profilePhoto)
   res.json(token)
 })
