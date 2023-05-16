@@ -24,14 +24,14 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 const optionCors ={
-  origin:"*",
-  methods:'GET, POST, OPTIONS, PUT, DELETE',
-  allowedHeaders: 'Content-Type,Authorization',
-  credentials:true
+  origin:"/*",
+  
 
 }
-
- app.use(cors())
+// methods:'GET, POST, OPTIONS, PUT, DELETE',
+//   allowedHeaders: 'Content-Type,Authorization',
+//   credentials:true
+ app.use(cors(optionCors))
 
 //  app.use((req, res, next) => {
 //   //http://localhost:3000 https://pi-web-git-main-estiven2111.vercel.app/   https://pi-lqaa7gh3w-estiven2111.vercel.app  https://pi-dovldixrv-estiven2111.vercel.app/
