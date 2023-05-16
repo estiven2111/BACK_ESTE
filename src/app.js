@@ -23,15 +23,15 @@ app.use(session({
   //? inicializar el modulo passport
 app.use(passport.initialize());
 app.use(passport.session());
-// const optionCors ={
-//   origin:URL_FRONT,
-//   methods:'GET, POST, OPTIONS, PUT, DELETE',
-//   allowedHeaders: 'Content-Type,Authorization',
-//   credentials:true
+const optionCors ={
+  origin:URL_FRONT,
+  methods:'GET, POST, OPTIONS, PUT, DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+  credentials:true
 
-// }
+}
 
-//  app.use(cors(optionCors))
+ app.use(cors(optionCors))
 
 //  app.use((req, res, next) => {
 //   //http://localhost:3000 https://pi-web-git-main-estiven2111.vercel.app/   https://pi-lqaa7gh3w-estiven2111.vercel.app  https://pi-dovldixrv-estiven2111.vercel.app/
