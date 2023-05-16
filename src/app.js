@@ -23,16 +23,23 @@ app.use(session({
   //? inicializar el modulo passport
 app.use(passport.initialize());
 app.use(passport.session());
+const optionCors ={
+  origin:URL_FRONT,
+  methods:'GET, POST, OPTIONS, PUT, DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+  credentials:true
 
-// app.use(cors({origin:URL_FRONT, credentials:true}))
-server.use((req, res, next) => {
-  //http://localhost:3000 https://pi-web-git-main-estiven2111.vercel.app/   https://pi-lqaa7gh3w-estiven2111.vercel.app  https://pi-dovldixrv-estiven2111.vercel.app/
-  res.header('Access-Control-Allow-Origin', "https://backeste-production.up.railway.app/"); // (*)update to match the domain you will make the request from
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  next();
-});
+}
+
+ app.use(cors(optionCors))
+// server.use((req, res, next) => {
+//   //http://localhost:3000 https://pi-web-git-main-estiven2111.vercel.app/   https://pi-lqaa7gh3w-estiven2111.vercel.app  https://pi-dovldixrv-estiven2111.vercel.app/
+//   res.header('Access-Control-Allow-Origin', "https://backeste-production.up.railway.app/"); // (*)update to match the domain you will make the request from
+//   res.header('Access-Control-Allow-Credentials', 'true');
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+//   next();
+// });
 
 // app.use(fileupload({
 //     useTempFiles: true,
