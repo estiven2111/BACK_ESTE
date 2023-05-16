@@ -57,7 +57,9 @@ artistRouter.get(
 );
 
 artistRouter.get(
+ 
   "/auth/google/callback",
+  ()=>{ console.log("VOY AUTENTICARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");next()},
   passport.authenticate("google", {
     failureMessage: "no se pudo iniciar sesion con google",
     failureRedirect: `${URL_FRONT}/login`, //! una direccion de front 
