@@ -1,5 +1,5 @@
 const isAuthGoogle = (req, res, next) => {
-    console.log(req.user);
+    console.log("este es isAutGoogle",req.user);
     if(req.user) {
         next();
     } else {

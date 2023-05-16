@@ -24,7 +24,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 const optionCors ={
-  origin:"https://pruebafron.vercel.app",
+  origin:URL_FRONT,
   credentials:true
 
 }

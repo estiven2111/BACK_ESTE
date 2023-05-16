@@ -5,7 +5,7 @@ module.exports = function (server) {
     pingTimeout: 6000,
     cors: {
       // origin: "https://tecnoeam.com",https://tecnoeam.com/urbanclub/
-      origin: "https://pruebafron.vercel.app",
+      origin: URL_FRONT,
 
     },
   });
