@@ -20,7 +20,9 @@ passport.use(
       passReqToCallback: true
   },
   async (req, accessToken, refreshToken, profile, done) => {
-
+    console.log("tokengoogle", req.query.code)
+    console.log("req.user", req.user)
+    console.log("profile", profile)
     const newArtist = await Artist.findOne({
         where: {
           email : profile._json.email,
