@@ -31,7 +31,8 @@ passport.use(
 
   if(newArtist) {
           const artist = await artistById(newArtist.id)
-          req.user=  generateJWT(artist.id, artist.name,artist.profilePhoto)
+          // artist.token =  generateJWT(artist.id, artist.name)
+          req.user =  artist
           done(null,artist)
     } else {
 
@@ -45,7 +46,8 @@ passport.use(
           profilePhoto : profile._json.picture
     })
     
-    req.user = generateJWT(artistByGoogle.id, artistByGoogle.name,artistByGoogle.profilePhoto);
+     // artistByGoogle.token = generateJWT(artistByGoogle.id, artistByGoogle.name);
+     req.user = artistByGoogle
     await artistByGoogle.save();
     
     done(null, artistByGoogle)

@@ -24,7 +24,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 const optionCors ={
-  origin:"/*",
+  origin:URL_FRONT,
   methods:'GET, POST, OPTIONS, PUT, DELETE',
   allowedHeaders: 'Content-Type,Authorization',
   credentials:true
