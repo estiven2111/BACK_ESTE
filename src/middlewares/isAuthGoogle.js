@@ -1,10 +1,10 @@
 const isAuthGoogle = (req, res, next) => {
     console.log("este es isAutGoogle",req.user);
-    res.json({isauthdevuelve:req})
+    // res.json({isauthdevuelve:req})
     if(req.user) {
         next();
     } else {
-        res.status(401).json({message: "You are not logged in"});
+        res.status(401).json({message: "You are not logged in",user:req});
     }
   }
 
