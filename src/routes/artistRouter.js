@@ -89,7 +89,7 @@ artistRouter.get(
   }
 );
 
-artistRouter.get("/auth/user", isAuthGoogle, (req,res)=>{
+artistRouter.get(`/auth/user`, isAuthGoogle, (req,res)=>{
   const token = generateJWT(req.user.id, req.user.name, req.user.profilePhoto)
   res.json(token)
 })
