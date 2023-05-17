@@ -53,6 +53,7 @@ passport.use(
     done(null, artistByGoogle)
 
     }
+    console.log("---------------------req user -------------------",req.user);
   }
 ));
 
