@@ -56,42 +56,74 @@ artistRouter.get(
   // }
 );
 
-artistRouter.get(
+// artistRouter.get(
  
+//   "/auth/google/callback",
+//   passport.authenticate("google", {
+//     failureMessage: "no se pudo iniciar sesion con google",
+//     failureRedirect: `${URL_FRONT}/login`, //! una direccion de front 
+//     successRedirect: `${URL_FRONT}/login/success` //!reemplazar por https://urbanclub.club
+//     // session: false,
+//   }),
+//   (req, res) => {
+
+//     try {
+//       //   const userString = JSON.stringify(req.user);
+//       console.log('se envia respuesta', req.user);
+
+//       res.json(req.user
+//         // ` 
+//         // <!DOCTYPE html>
+//         // <html lang="en">
+
+//         // <body>
+
+
+//         // </body>
+//         // <script> window.opener.postMessage(${userString}, '${URL_BACK}') </script>
+//         // </html>
+//         // `
+//       )
+//     } catch (error) {
+//       res.status(400).json({ error: error.message })
+//     }
+//   }
+// );
+
+
+routerUser.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    failureMessage: "no se pudo iniciar sesion con google",
-    failureRedirect: `${URL_FRONT}/login`, //! una direccion de front 
-    successRedirect: `${URL_FRONT}/login/success` //!reemplazar por https://urbanclub.club
-    // session: false,
+    failureRedirect: "/auth/google",
+    session: false,
   }),
   (req, res) => {
 
-    try {
-      //   const userString = JSON.stringify(req.user);
-      console.log('se envia respuesta', req.user);
+    try{
+    const userString = JSON.stringify(req.user);
+    console.log(req.url)
+    res.send(
+      ` 
+      <!DOCTYPE html>
+      <html lang="en">
 
-      res.json(req.user
-        // ` 
-        // <!DOCTYPE html>
-        // <html lang="en">
+      <body>
+          
 
-        // <body>
-
-
-        // </body>
-        // <script> window.opener.postMessage(${userString}, '${URL_BACK}') </script>
-        // </html>
-        // `
-      )
-    } catch (error) {
-      res.status(400).json({ error: error.message })
+      </body>
+      <script> window.opener.postMessage(${userString}, '${process.env.FRONTEND_URL}') </script>
+      </html>
+      `
+    )}catch (error) {
+      res.status(400).json({error: error.message})
     }
   }
 );
-// isAuthGoogle,
+
+
+
 artistRouter.get(`/auth/user`,isAuthGoogle, (req,res)=>{
-  
+
   const token = generateJWT(req.user.id, req.user.name, req.user.profilePhoto)
   res.json(token)
 })
