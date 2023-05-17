@@ -45,91 +45,91 @@ artistRouter.post("/follow/:userId/unfollow", unfollowArtistHandler);
 artistRouter.put("/newPassword/:id/:token", verifyPassToken, newPasswordHandler)
 
 
-// artistRouter.get(
-//   "/auth/google",
-//   passport.authenticate("google", {
-//     prompt: 'select_account'
-//   }),
-//   // (req, res, next) => {
-//   // Esta función se ejecutará solo si la autenticación falla
-//   // res.status(401).json({ error: "Autenticación fallida" });
-//   // }
-// );
-
-// artistRouter.get(
- 
-//   "/auth/google/callback",
-//   passport.authenticate("google", {
-//     failureMessage: "no se pudo iniciar sesion con google",
-//     failureRedirect: `${URL_FRONT}/login`, //! una direccion de front 
-//     successRedirect: `${URL_FRONT}/login/success` //!reemplazar por https://urbanclub.club
-//     // session: false,
-//   }),
-//   (req, res) => {
-
-//     try {
-//       //   const userString = JSON.stringify(req.user);
-//       console.log('se envia respuesta', req.user);
-
-//       res.json(req.user
-//         // ` 
-//         // <!DOCTYPE html>
-//         // <html lang="en">
-
-//         // <body>
-
-
-//         // </body>
-//         // <script> window.opener.postMessage(${userString}, '${URL_BACK}') </script>
-//         // </html>
-//         // `
-//       )
-//     } catch (error) {
-//       res.status(400).json({ error: error.message })
-//     }
-//   }
-// );
-
-
 artistRouter.get(
   "/auth/google",
-  passport.authenticate("google"),
-  function (req, res) {
-
-  }
+  passport.authenticate("google", {
+    prompt: 'select_account'
+  }),
+  // (req, res, next) => {
+  // Esta función se ejecutará solo si la autenticación falla
+  // res.status(401).json({ error: "Autenticación fallida" });
+  // }
 );
 
 artistRouter.get(
+ 
   "/auth/google/callback",
   passport.authenticate("google", {
     failureMessage: "no se pudo iniciar sesion con google",
     failureRedirect: `${URL_FRONT}/login`, //! una direccion de front 
-    successRedirect: `${URL_FRONT}/login/success`, //!reemplazar por https://urbanclub.club
-    session: false,
-  
+    successRedirect: `${URL_FRONT}/login/success` //!reemplazar por https://urbanclub.club
+    // session: false,
   }),
   (req, res) => {
 
-    try{
-    const userString = JSON.stringify(req.user);
-    console.log(req.url)
-    res.send(
-      ` 
-      <!DOCTYPE html>
-      <html lang="en">
+    try {
+      //   const userString = JSON.stringify(req.user);
+      console.log('se envia respuesta', req.user);
 
-      <body>
-          
+      res.json(req.user
+        // ` 
+        // <!DOCTYPE html>
+        // <html lang="en">
 
-      </body>
-      <script> window.opener.postMessage(${userString}, '${URL_FRONT}') </script>
-      </html>
-      `
-    )}catch (error) {
-      res.status(400).json({error: error.message})
+        // <body>
+
+
+        // </body>
+        // <script> window.opener.postMessage(${userString}, '${URL_BACK}') </script>
+        // </html>
+        // `
+      )
+    } catch (error) {
+      res.status(400).json({ error: error.message })
     }
   }
 );
+
+
+// artistRouter.get(
+//   "/auth/google",
+//   passport.authenticate("google"),
+//   function (req, res) {
+
+//   }
+// );
+
+// artistRouter.get(
+//   "/auth/google/callback",
+//   passport.authenticate("google", {
+//     failureMessage: "no se pudo iniciar sesion con google",
+//     failureRedirect: `${URL_FRONT}/login`, //! una direccion de front 
+//     successRedirect: `${URL_FRONT}/login/success`, //!reemplazar por https://urbanclub.club
+//     session: false,
+  
+//   }),
+//   (req, res) => {
+
+//     try{
+//     const userString = JSON.stringify(req.user);
+//     console.log(req.url)
+//     res.send(
+//       ` 
+//       <!DOCTYPE html>
+//       <html lang="en">
+
+//       <body>
+          
+
+//       </body>
+//       <script> window.opener.postMessage(${userString}, '${URL_FRONT}') </script>
+//       </html>
+//       `
+//     )}catch (error) {
+//       res.status(400).json({error: error.message})
+//     }
+//   }
+// );
 
 
 
