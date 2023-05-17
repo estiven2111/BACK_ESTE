@@ -18,10 +18,10 @@ const { filterPrice } = require("../middlewares/filterPrice")
 searchRouter.get("/", getAllCategories);
 searchRouter.get("/locations", getSavedLocations);
 searchRouter.get("/events/locations", getEventsLocations);
-// searchRouter.get("/:category", getArtistByCat);
-// searchRouter.get("/artists", filterCategories, filterLocation, filterEvents, getResults);
-// searchRouter.get("/events", filterDate, filterPrice, filterLocation, getSearchEvents);
+searchRouter.get("/:category", getArtistByCat);
+searchRouter.get("/artists", filterCategories, filterLocation, filterEvents, getResults);
+searchRouter.get("/events", filterDate, filterPrice, filterLocation, getSearchEvents);
 
-// artistRouter.get("/search/:category/:subcategory", getArtistByCat)
+artistRouter.get("/search/:category/:subcategory", getArtistByCat)
 
 module.exports = searchRouter;
