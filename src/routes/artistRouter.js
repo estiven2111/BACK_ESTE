@@ -95,7 +95,7 @@ artistRouter.get(
          <body>
 
          </body>
-         <script> window.opener.postMessage(${userString}, '${URL_BACK}') </script>
+         <script> window.opener.postMessage(${userString}, '${URL_FRONT}') </script>
          </html>
          `
       )
