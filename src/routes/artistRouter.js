@@ -84,21 +84,20 @@ artistRouter.get(
   (req, res) => {
 
     try {
-      //   const userString = JSON.stringify(req.user);
+       const userString = JSON.stringify(req.user);
       console.log('se envia respuesta', req.user);
 
       res.json(req.user
-        // ` 
-        // <!DOCTYPE html>
-        // <html lang="en">
+         ` 
+         <!DOCTYPE html>
+         <html lang="en">
 
-        // <body>
+         <body>
 
-
-        // </body>
-        // <script> window.opener.postMessage(${userString}, '${URL_BACK}') </script>
-        // </html>
-        // `
+         </body>
+         <script> window.opener.postMessage(${userString}, '${URL_BACK}') </script>
+         </html>
+         `
       )
     } catch (error) {
       res.status(400).json({ error: error.message })
@@ -149,8 +148,8 @@ artistRouter.get(
 
 
 
-artistRouter.get(`/auth/user`,isAuthGoogle, (req,res)=>{
-
+artistRouter.get(`/auth/user`,passport.authenticate('google', { session: true }),isAuthGoogle, (req,res)=>{
+  
   const token = generateJWT(req.user.id, req.user.name, req.user.profilePhoto)
   res.json(token)
 })
