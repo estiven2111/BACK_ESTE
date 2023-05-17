@@ -4,7 +4,7 @@ const eventRouter = require("./eventRouter");
 const conversationRouter = require("./conversationRouter");
 const messageRouter = require("./messageRouter");
 const searchRouter = require("./searchRouter");
-const ecommerce = require("./Ecommerce");
+const ecommerce = require("./ecommerce");
 const eventCommentRouter = require("./eventCommentRouter");
 
 const mainRouter = Router();
