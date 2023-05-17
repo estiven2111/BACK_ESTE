@@ -22,6 +22,6 @@ searchRouter.get("/:category", getArtistByCat);
 searchRouter.get("/artists", filterCategories, filterLocation, filterEvents, getResults);
 searchRouter.get("/events", filterDate, filterPrice, filterLocation, getSearchEvents);
 
-artistRouter.get("/search/:category/:subcategory", getArtistByCat)
+// artistRouter.get("/search/:category/:subcategory", getArtistByCat)
 
 module.exports = searchRouter;
