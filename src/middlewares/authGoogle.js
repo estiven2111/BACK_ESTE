@@ -33,7 +33,7 @@ passport.use(
           const artist = await artistById(newArtist.id)
           // artist.token =  generateJWT(artist.id, artist.name)
           req.user =  artist
-          done(null,artist)
+          done(null,req.user)
     } else {
 
       const artistByGoogle = await Artist.create({
@@ -49,8 +49,8 @@ passport.use(
      // artistByGoogle.token = generateJWT(artistByGoogle.id, artistByGoogle.name);
      req.user = artistByGoogle
     await artistByGoogle.save();
-    
-    done(null, artistByGoogle)
+    console.log("req.user", req.user)
+    done(null, req.user)
 
     }
   }
