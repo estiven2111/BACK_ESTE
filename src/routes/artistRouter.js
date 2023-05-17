@@ -45,16 +45,16 @@ artistRouter.post("/follow/:userId/unfollow", unfollowArtistHandler);
 artistRouter.put("/newPassword/:id/:token", verifyPassToken, newPasswordHandler)
 
 
-artistRouter.get(
-  "/auth/google",
-  passport.authenticate("google", {
-    prompt: 'select_account'
-  }),
-  // (req, res, next) => {
-  // Esta función se ejecutará solo si la autenticación falla
-  // res.status(401).json({ error: "Autenticación fallida" });
-  // }
-);
+// artistRouter.get(
+//   "/auth/google",
+//   passport.authenticate("google", {
+//     prompt: 'select_account'
+//   }),
+//   // (req, res, next) => {
+//   // Esta función se ejecutará solo si la autenticación falla
+//   // res.status(401).json({ error: "Autenticación fallida" });
+//   // }
+// );
 
 // artistRouter.get(
  
@@ -92,6 +92,14 @@ artistRouter.get(
 
 
 routerUser.get(
+  "/auth/google",
+  passport.authenticate("google"),
+  function (req, res) {
+
+  }
+);
+
+routerUser.get(
   "/auth/google/callback",
   passport.authenticate("google", {
     failureRedirect: "/auth/google",
@@ -111,7 +119,7 @@ routerUser.get(
           
 
       </body>
-      <script> window.opener.postMessage(${userString}, '${process.env.FRONTEND_URL}') </script>
+      <script> window.opener.postMessage(${userString}, '${URL_FRONT}') </script>
       </html>
       `
     )}catch (error) {
