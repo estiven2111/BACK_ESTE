@@ -102,8 +102,11 @@ artistRouter.get(
 artistRouter.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "/auth/google",
+    failureMessage: "no se pudo iniciar sesion con google",
+    failureRedirect: `${URL_FRONT}/login`, //! una direccion de front 
+    successRedirect: `${URL_FRONT}/login/success`, //!reemplazar por https://urbanclub.club
     session: false,
+  
   }),
   (req, res) => {
 
