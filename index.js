@@ -18,9 +18,9 @@ app.listen(PORT, ()=>{
 const { truncate } = require("fs-extra");
 const app = require("./src/app");
 const { sequelize } = require("./src/db");
-const http = require("http");
-const server = http.createServer(app);
-const io = require("./socket/server")(server); // Aquí se requiere el archivo que contiene la lógica de Socket.io
+// const http = require("http");
+// const server = http.createServer(app);
+// require("./socket/server")(server); // Aquí se requiere el archivo que contiene la lógica de Socket.io
 
 require("dotenv").config();
 
