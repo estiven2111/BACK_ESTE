@@ -91,7 +91,7 @@ artistRouter.put("/newPassword/:id/:token", verifyPassToken, newPasswordHandler)
 // );
 
 
-routerUser.get(
+artistRouter.get(
   "/auth/google",
   passport.authenticate("google"),
   function (req, res) {
@@ -99,7 +99,7 @@ routerUser.get(
   }
 );
 
-routerUser.get(
+artistRouter.get(
   "/auth/google/callback",
   passport.authenticate("google", {
     failureRedirect: "/auth/google",
