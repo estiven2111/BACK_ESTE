@@ -61,16 +61,20 @@ module.exports = function (server) {
 
 const socketio = require("socket.io");
 const {URL_FRONT} = require("../src/env")
+const optionCors ={
+  origin:URL_FRONT,
+  methods:'GET, POST, OPTIONS, PUT, DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+  credentials:true
+}
 module.exports = function (server) {
   const io = socketio(server, {
     pingTimeout: 6000,
-    cors: {
-      // origin: "https://tecnoeam.com",https://tecnoeam.com/urbanclub/
-      origin: URL_FRONT,
-
-    },
+    cors: optionCors
   });
-
+ 
+   
+  
   let users = [];
 
   const addUser = (userId, socketId) => {
