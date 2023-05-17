@@ -48,7 +48,7 @@ passport.use(
     
      // artistByGoogle.token = generateJWT(artistByGoogle.id, artistByGoogle.name);
 
-      const token = generateJWT(req.user.id, req.user.name, req.user.profilePhoto)
+      const token = generateJWT(artistByGoogle.id,artistByGoogle.name, artistByGoogle.profilePhoto)
       await artistByGoogle.save();
       artistByGoogle.token = token
      req.user = artistByGoogle
