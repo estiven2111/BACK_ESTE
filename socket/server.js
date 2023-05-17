@@ -62,7 +62,7 @@ module.exports = function (server) {
 const socketio = require("socket.io");
 const {URL_FRONT} = require("../src/env")
 const optionCors ={
-  origin:URL_FRONT,
+  origin:"*",
   methods:'GET, POST, OPTIONS, PUT, DELETE',
   allowedHeaders: 'Content-Type,Authorization',
   credentials:true
