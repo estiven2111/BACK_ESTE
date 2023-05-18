@@ -2,7 +2,7 @@ const { Artist } = require("../../db");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 const {URL_FRONT} = require("../../env")
-const { PASSWORD_EMAIL, JWT_SECRET} = process.env;
+const { PASSWORD_EMAIL,EMAIL_ADDRES, JWT_SECRET} = process.env;
 const jwt = require("jsonwebtoken");
 
 const forgotPassword = async (email) => {
@@ -22,13 +22,13 @@ const forgotPassword = async (email) => {
             host: "smtp.gmail.com",
             port: 587,
             auth: {
-                user: "urbanclub948@gmail.com",
+                user: EMAIL_ADDRES,
                 pass: PASSWORD_EMAIL
             }
         }
 
         const mensaje = {
-            from: "urbanclub948@gmail.com",
+            from: EMAIL_ADDRES,
             to: email,
             subject: "Recuperación de contraseña",
             html: `
