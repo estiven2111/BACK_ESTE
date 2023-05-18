@@ -11,8 +11,12 @@ const updateArtist = async (req) => {
   const { id } = req.params;
   let { body } = req;
   let {Country,city} = req.body
-  body.Country = Country.charAt(0).toUpperCase() + Country.slice(1).toLowerCase();
-  body.city = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
+  if ( Country) {
+    body.Country = Country.charAt(0).toUpperCase() + Country.slice(1).toLowerCase();
+  }
+  if (city) {
+    body.city = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
+  }
   
   let actualizados = {};
   if (!id) {

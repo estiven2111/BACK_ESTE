@@ -4,6 +4,16 @@ const {Event,Artist} = require("../../db");
 const postEventController = async (req) => {
     const { name, price, location, nameArena, date,
     stock, Country,city,Description, id_Artist} = req.body;
+    let pais ;
+    let ciudad ;
+    
+    if (Country) {
+        pais = Country.charAt(0).toUpperCase() + Country.slice(1).toLowerCase();
+    }
+    if (city) {
+         ciudad = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
+    }
+    console.log(pais,ciudad);
     let photoEvent = {}
     if (req.files) {
         const {eventPhoto} = req.files
@@ -23,12 +33,13 @@ const postEventController = async (req) => {
         location,
         nameArena,
         date,
-        city,
-        Country,
+        city:ciudad,
+        Country:pais,
         Description,
         id_eventPhoto:photoEvent.public_id,
         eventPhoto:photoEvent.secure_url,
     }
+    
    
     
    try {

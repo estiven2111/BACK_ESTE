@@ -4,6 +4,13 @@ const { Event,Artist } = require('../../db');
 const updateEvent = async (req) => {
     const { id } = req.params;
     const { body } = req;
+    let {Country,city} = req.body
+  if ( Country) {
+    body.Country = Country.charAt(0).toUpperCase() + Country.slice(1).toLowerCase();
+  }
+  if (city) {
+    body.city = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
+  }
     if (!id) {
         throw new Error("Not specific Id")
     } else {
