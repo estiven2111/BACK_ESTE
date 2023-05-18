@@ -5,7 +5,6 @@ const auth = { user: CLIENT_PAYPAL, pass: SECRET_PAYPAL }
 
 const executePaymentController = (req,res) =>{
     const token = req.query.token; //<-----------
-    console.log("back acepte");
     request.post(`${API_PAYPAL}/v2/checkout/orders/${token}/capture`, {
         auth,
         body: {},

@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken")
 
 const verifyPassToken = (req, res, next) => {
     const { token } = req.params;
-  console.log(token)
     if (!token) {
       // Si no se proporciona el token, envía una respuesta de error
       return res.status(400).json({ message: 'Token no proporcionado' });

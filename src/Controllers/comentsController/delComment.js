@@ -1,7 +1,6 @@
 const { EventComment } = require("../../db");
 
 const delComment = async (idComment) => {
-  console.log(idComment);
   if (!idComment) {
     throw new Error("Id not found in database");
   }

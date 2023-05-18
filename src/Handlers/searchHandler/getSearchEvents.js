@@ -10,7 +10,6 @@ const getSearchEvents = async (req, res) => {
   // const subcategoria = req.subcategoria;
   const price = req.price;
   const location = req.ubicacion;
-  console.log(location)
 
   let filteredEvents = await Event.findAll({
     include: [{

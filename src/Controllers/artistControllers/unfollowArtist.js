@@ -1,7 +1,6 @@
 const { Follow } = require("../../db");
 
 const unfollowArtist = async ( userId, followedId ) => {
-  console.log(userId, followedId);
     try {
       const follow = await Follow.findOne({
         where: {

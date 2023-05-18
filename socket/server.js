@@ -16,13 +16,10 @@ module.exports = function (server) {
 const addUser = (userId, socketId) => {
   !users.some((user) => user.userId === userId) &&
     users.push({ userId, socketId });
-    console.log(users)
 };
 
 const removeUser = (socketId) => {
-  console.log(socketId)
   users = users.filter((user) => user.socketId !== socketId);
-  console.log(users)
 };
 
 const getUser = (userId) => {
@@ -35,7 +32,6 @@ const getUserConv = (userIds) => {
 
 io.on("connection", (socket) => {
   //cuando te conectas
-  console.log("a user connected")
   //toma el userId y sockedId from user
   
   socket.on("addUser", userId =>{
@@ -45,7 +41,6 @@ io.on("connection", (socket) => {
 
   //send and get message
   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
-  console.log({ senderId, receiverId, text });
   const user = getUser(receiverId);
   if (user && user.socketId) {
     io.to(user.socketId).emit("getMessage", {

@@ -6,7 +6,6 @@ const nodemailer = require("nodemailer");
 const buyTicketController = async (req) => {
   const { id } = req.params;
   const { stock, id_Artist, totalPayment } = req.body;
-  console.log(totalPayment)
 
   if (!id) {
     throw new Error("Not specific Id");

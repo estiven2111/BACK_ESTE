@@ -15,7 +15,6 @@ const createPaymentControler = (req, res) => {
 
     const { value, brand_name } = req.body
     const auth = { user: CLIENT_PAYPAL, pass: SECRET_PAYPAL }
-    console.log(value, brand_name)
     const body = {
         intent: 'CAPTURE',
         purchase_units: [{
@@ -44,7 +43,7 @@ const createPaymentControler = (req, res) => {
             status: response.body.status,
             link: response.body.links[1].href,
         }
-        
+
         res.json(data)
     })
 }

@@ -17,7 +17,7 @@ const postArtist = async (req) => {
         return { error: "Debe llenar todos los campos" };
 
     //?el name se agrega con mayuscula
-    const Nombre = name.toUpperCase();
+    // const Nombre = name.toUpperCase();
 
     //? validacion de correo electronico
     const valueEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
