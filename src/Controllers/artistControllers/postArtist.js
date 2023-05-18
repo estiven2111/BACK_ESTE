@@ -74,7 +74,7 @@ const postArtist = async (req) => {
     passwordcrypt = await bcrypt.hash(password, 8);
     try {
         let newArtist = {
-            name: Nombre,
+            name,
             lastname,
             email,
             id_profilePhoto: saveProfile.public_id ,
