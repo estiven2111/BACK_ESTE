@@ -44,6 +44,7 @@ const createPaymentControler = (req, res) => {
             status: response.body.status,
             link: response.body.links[1].href,
         }
+        
         res.json(data)
     })
 }
