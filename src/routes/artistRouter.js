@@ -65,10 +65,9 @@ artistRouter.put("/newPassword/:id/:token", verifyPassToken, newPasswordHandler)
 artistRouter.get(
   "/auth/google",
   passport.authenticate("google", {
-         prompt: 'select_account'
+          prompt: 'select_account'
        } ),
   function (req, res) {
-
   }
 );
 
@@ -80,6 +79,8 @@ artistRouter.get(
     failureRedirect: `${URL_FRONT}/login`, //! una direccion de front 
     // successRedirect: `${URL_FRONT}/login/success` //!reemplazar por https://urbanclub.club
     // session: false,
+    authorizationURL: 'https://accounts.google.com/o/oauth2/auth',
+    tokenURL: 'https://accounts.google.com/o/oauth2/token',
   }),
   (req, res) => {
 
